@@ -3,7 +3,7 @@ Technical Requirements:
 Two Object Constructors:
 User{
 Properties - login
-           - be able to create a new business
+           -be able to create a new business
 }
 
 Business{
