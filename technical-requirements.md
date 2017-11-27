@@ -22,20 +22,20 @@ businessArray:
 }
 
 Business Methods:
-1- checkPrice(maxPrice)
+1-checkPrice(maxPrice)
 2-calculateDistance()
 3-happyHourAt()
 
 Object Literal:
-Happyhour {
-  var busimess = []
+happyHour {
+  var business = []
   var users = []
 
   function filterBy(key, value) {
     value --> price, distance
   }
 
-  function dipslaBusiness()
+  function displayBusiness()
   function filterOnSubmit()
 
   function filterOnSubmit()

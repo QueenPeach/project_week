@@ -6,8 +6,8 @@ I like beer. Therefore, my idea for a site is some sort of Happy Hour tracker th
 -As a user, I want to know what time the happy hour is active so I can find a bar to join happy hour
 -As a user, I want to know the locations of places that host happy hour so I know where to go
 -As a user, I want to know pricing information about happy hour so I can decide which location is best for me
--As a user, I want the ability to add a locations of my own so so I can improve the service provided by the website
--As a developer, I want the website to have three distinct pages to I want to meet project requirements
+-As a user, I want the ability to add a locations of my own so I can improve the service provided by the website
+-As a developer, I want the website to have three distinct pages to meet project requirements
 
 ##Stretch Goals
 -As a user, I want to know if the happy hour menu has food so I know where to go if I'm hungry
