@@ -8,7 +8,9 @@
 
 #Conflict Resolution
 -If someone has a conflict, they can mention it to the group and we will all
- work through it together.
+ work through it together.  
+ -Involve a TA or the teacher to help resolve issues if we can't resolve them  
+ as a group first.  
 
 #Work Plan
 -We will try to break work down into tasks that are relatively reasonable in
@@ -19,9 +21,9 @@
  interesting to solve.
 
 #Git Process
--Git process: What is your Git flow? How many people must review a PR? Who
-merges PRs?
+-When pair programming have any of the other two people take a look at the PR with  
+fresh eyes.
+-Steve merges all PRs, or under Steve's advisement we can merge PRs.
 
 #Anything Else
--Any thing else you feel is important: expectations around work times, standup
-times, taking breaks/seeking help when you're stuck, etc.
+-We will try to honor the 15 minute rule. 
