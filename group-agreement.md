@@ -11,10 +11,12 @@
  work through it together.
 
 #Work Plan
--Work plan: How you will identify tasks, assign tasks, know when they are
-complete, and manage work in general? In particular, make sure you know how
-you'll track whether everyone is contributing equally to the JavaScript, CSS,
-and HTML portions, and that each person is working on "meaty" problems.
+-We will try to break work down into tasks that are relatively reasonable in
+ size and divide up the work between each other.
+-We will pair program when possible on Javascript & CSS and trade partners
+ when a task is complete.
+-Tasks will be evenly divided to ensure everyone will have something
+ interesting to solve.
 
 #Git Process
 -Git process: What is your Git flow? How many people must review a PR? Who
