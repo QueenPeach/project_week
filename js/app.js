@@ -39,13 +39,14 @@ var happyHour = {
 
   },
 
-  prepareEventListeners: function () {
+  prepareAddNewEventListener: function () {
     // attach event listener to the add new business form
-    var form = document.getElementByID('newbusiness');
+    var form = document.getElementById('newbusiness');
     form.addEventListener('submit', happyHour.createOnSubmit);
   }
 };
 
+// Business constructor
 function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, imgURL) {
   this.name = businessName;
   this.address = {};
@@ -61,6 +62,7 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
 }
 
 
+// User constructor
 function User(name, password) {
   this.name = name;
   this.password = password;
