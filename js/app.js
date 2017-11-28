@@ -17,6 +17,8 @@ var happyHour = {
   },
 
   createOnSubmit: function (event) {
+    event.preventDefault();
+    console.log('Entered event listener!');
     new Business(
       event.target.businessname.value,
       event.target.addrstreet.value,
