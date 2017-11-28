@@ -26,4 +26,4 @@ fresh eyes.
 -Steve merges all PRs, or under Steve's advisement we can merge PRs.
 
 #Anything Else
--We will try to honor the 15 minute rule. 
+-We will try to honor the 15 minute rule.
