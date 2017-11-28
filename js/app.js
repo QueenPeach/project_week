@@ -17,7 +17,16 @@ var happyHour = {
   },
 
   createOnSubmit: function (event) {
-
+    new Business(
+      event.target.businessname.value,
+      event.target.addrstreet.value,
+      event.target.addrcity.value,
+      event.target.addrstate.value,
+      event.target.addrzip.value,
+      event.target.starttime.value,
+      event.target.endtime.value,
+      event.target.imageurl.value
+    );
   },
 
   cacheData: function () {
