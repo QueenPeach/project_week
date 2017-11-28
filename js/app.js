@@ -29,16 +29,17 @@ var happyHour = {
   },
 };
 
-function Business(name, streetAddress, townAddress, zipAddress, stateAddress, hhTimeStart, hhTimeEnd, imgURL) {
-  this.name = name;
-  this.street = streetAddress;
-  this.town = townAddress;
-  this.zip = zipAddress;
-  this.state = stateAddress;
-  this.hhTimeStart = 0;
-  this.hhTimeEnd = 0;
-  this.img = imgURL;
-  businessArray.push(this);
+function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, imgURL) {
+  this.name = businessName;
+  this.address = {};
+  this.address.street = street;
+  this.address.state = state;
+  this.address.zip = zip;
+  this.hhTime = {};
+  this.hhTime.start = hhTimeStart;
+  this.hhTime.end = hhTimeEnd;
+  this.imgURL = imgURL;
+  happyHour.business.push(this);
 }
 console.log('Business object constructor created: ', Business);
 
