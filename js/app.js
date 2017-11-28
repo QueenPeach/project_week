@@ -27,6 +27,12 @@ var happyHour = {
   restoreData: function () {
 
   },
+
+  prepareEventListeners: function () {
+    // attach event listener to the add new business form
+    var form = document.getElementByID('newbusiness');
+    form.addEventListener('submit', happyHour.createOnSubmit);
+  }
 };
 
 function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, imgURL) {
@@ -40,11 +46,12 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.hhTime.end = hhTimeEnd;
   this.imgURL = imgURL;
   happyHour.business.push(this);
+  console.log('Business object created:', this);
 }
-console.log('Business object constructor created: ', Business);
+
 
 function User(name, password) {
   this.name = name;
   this.password = password;
+  console.log('User object constructor created:', this);
 }
-console.log('User object constructor created: ', User);
