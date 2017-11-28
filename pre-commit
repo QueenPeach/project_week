@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+RETVAL=0
+# Execute git branch command and do a quiet grep to see if master branch is selected
+git branch | grep -q '\* master'
+
+# if last return value was 0, master branch is selected. Disallow direct commits to master.
+if [ $? -eq 0 ]; then
+    echo "Error: Direct commits to master branch are disallowed."
+    RETVAL=1
+fi
+
+exit $RETVAL
