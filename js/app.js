@@ -30,8 +30,19 @@ var happyHour = {
     console.log('event object Price: ', event.target[1].value);
     console.log('event object Distance: ', event.target[2].value);
 
+    if (event.target[0].value === '') {
+      event.target[0].value = 1;
+    }
+    if (event.target[1].value === '') {
+      event.target[1].value = 1;
+    }
+    if (event.target[2].value === '') {
+      event.target[2].value = 1;
+    }
 
-    happyHour.filterBy(event.target[0].value, event.target[2].value, event.target[3].value);
+    console.log(event.target[0].value, event.target[1].value, event.target[2].value);
+
+    happyHour.filterBy(event.target[0].value, event.target[1].value, event.target[2].value);
 
   },
 
