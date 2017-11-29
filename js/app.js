@@ -25,6 +25,14 @@ var happyHour = {
   filterOnSubmit: function (event) {
     // a(time), b(distance), c(price), d(foodType)
     // if user selects any a,b,c pass the value to filterBy function, else pass 1 for particual letter.
+    event.preventDefault();
+    console.log('event object Time: ', event.target[0].value);
+    console.log('event object Price: ', event.target[1].value);
+    console.log('event object Distance: ', event.target[2].value);
+
+
+    happyHour.filterBy(event.target[0].value, event.target[2].value, event.target[3].value);
+
   },
 
   createOnSubmit: function (event) {
@@ -49,6 +57,13 @@ var happyHour = {
   restoreData: function () {
 
   },
+
+  userFilterEventListener: function () {
+    // attach event listener to the user input filter form
+    var form = document.getElementById('userFilter');
+    form.addEventListener('submit', happyHour.filterOnSubmit);
+  },
+
 
   prepareAddNewEventListener: function () {
     // attach event listener to the add new business form
