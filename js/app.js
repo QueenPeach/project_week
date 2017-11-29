@@ -24,7 +24,7 @@ var happyHour = {
 
   filterOnSubmit: function (event) {
     // a(time), b(distance), c(price), d(foodType)
-    // if user selects any a,b,c pass the value to filterBy function, else pass 1 for particual letter.
+    // if user selects any a,b,c pass the value to filterBy function, else pass 1 for particular letter.
     event.preventDefault();
     console.log('event object Time: ', event.target[0].value);
     console.log('event object Price: ', event.target[1].value);
@@ -60,26 +60,27 @@ var happyHour = {
       event.target.imageurl.value
     );
     // new business was created, cache all data
-    happyHour.cacheData();
+    happyHour.cacheData(true, false);
   },
 
-  cacheData: function () {
-    if (happyHour.business.length > 0) {
+  cacheData: function (cacheBusiness, cacheUser) {
+    if (cacheBusiness && happyHour.business.length > 0) {
       localStorage.business = JSON.stringify(happyHour.business);
-      console.log('cached businesses:', happyHour.business);
     }
-    if (happyHour.user.length > 0) {
+    if (cacheUser && happyHour.user.length > 0) {
       localStorage.user = JSON.stringify(happyHour.user);
-      console.log('cached users:', happyHour.user);
     }
   },
 
   restoreData: function () {
+    console.log('Restoring data!');
+    // Restore business data
     if (localStorage.business) {
-      var objects = JSON.parse(localStorage.business);
-      for (var i = 0; i < objects.length; i++) {
-        var object = objects[i];
-        var b = new Business(
+      happyHour.business = [];
+      let objects = JSON.parse(localStorage.business);
+      for (let i = 0; i < objects.length; i++) {
+        let object = objects[i];
+        let b = new Business(
           object.name,
           object.address.street,
           object.address.city,
@@ -92,7 +93,15 @@ var happyHour = {
         b.distance = object.distance;
       }
     }
-    // TODO: Restore data for users as well
+    // Restore user data
+    if (localStorage.user) {
+      happyHour.user = [];
+      let objects = JSON.parse(localStorage.user);
+      for (let i = 0; i < objects.length; i++) {
+        let object = objects[i];
+        new User(object.userName, object.password);
+      }
+    }
   },
 
   userFilterEventListener: function () {
@@ -106,6 +115,37 @@ var happyHour = {
     // attach event listener to the add new business form
     var form = document.getElementById('newbusiness');
     form.addEventListener('submit', happyHour.createOnSubmit);
+  },
+
+  prepareSignInEventListener: function () {
+    // attach event listener to the sign in form
+    var form = document.getElementById('form-signin');
+    form.addEventListener('submit', happyHour.signIn);
+  },
+
+  signIn: function (event) {
+    // Handle event of a user trying to sign in
+    event.preventDefault();
+    var userName = event.target.username.value;
+    var password = event.target.password.value;
+    /* Look for user that matches provided username. If found, validate */
+    for (let i = 0; i < happyHour.user.length; i++) {
+      let user = happyHour.user[i];
+
+      if (userName !== user.userName) {
+        continue;
+      }
+
+      if (password !== user.password) {
+        console.log('Invalid password! Not logged in.');
+        return;
+      } else {
+        console.log('Successfully logged in!');
+        return;
+      }
+    }
+
+    console.log('Invalid Username!');
   }
 };
 
@@ -128,14 +168,18 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
 }
 
 // User constructor
-function User(name, password) {
-  this.name = name;
+function User(userName, password) {
+  this.userName = userName;
   this.password = password;
+  happyHour.user.push(this);
+  // Cache user data
+  happyHour.cacheData(false, true);
   console.log('User object constructor created:', this);
 }
 
 // console.log('Business object constructor created: ', Business);
-var shopOne = new Business('shopOne', '15 142nd', 'seattle', 'Wa', '98133', 4, 6, 5);
-var shopTwo = new Business('shopTwo', '15 142nd', 'seattle', 'Wa', '98133', 5, 7, 10);
-var shopThree = new Business('shopThree', '15 142nd', 'seattle', 'Wa', '98133', 4, 10, 15);
-var shopFour = new Business('shopFour', '15 142nd', 'seattle', 'Wa', '98133', 2, 5, 20);
+new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
+new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
+new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
+new User('user', 'password');
