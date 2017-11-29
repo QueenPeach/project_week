@@ -74,6 +74,7 @@ var happyHour = {
       event.target.addrzip.value,
       event.target.starttime.value,
       event.target.endtime.value,
+      event.target.pricing.value,
       event.target.imageurl.value
     );
     // new business was created, cache all data
@@ -105,6 +106,7 @@ var happyHour = {
           object.address.zip,
           object.hhTime.start,
           object.hhTime.end,
+          object.pricing,
           object.imgURL
         );
         b.distance = object.distance;
@@ -167,7 +169,7 @@ var happyHour = {
 };
 
 // Business constructor
-function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, imgURL) {
+function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, pricing, imgURL) {
   this.name = businessName;
   this.address = {};
   this.address.street = street;
@@ -178,6 +180,7 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.hhTime.start = hhTimeStart;
   this.hhTime.end = hhTimeEnd;
   this.imgURL = imgURL;
+  this.pricing = pricing;
   // all businesses will be 0..15 miles away
   this.distance = Math.floor(Math.random() * 15);
   happyHour.business.push(this);
@@ -195,8 +198,8 @@ function User(userName, password) {
 }
 
 // console.log('Business object constructor created: ', Business);
-new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
-new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
-new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
-new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
+new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '1', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '3', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
+new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '4', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
+new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
 new User('user', 'password');
