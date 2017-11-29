@@ -24,7 +24,7 @@ var happyHour = {
 
   filterOnSubmit: function (event) {
     // a(time), b(distance), c(price), d(foodType)
-    // if user selects any a,b,c pass the value to filterBy function, else pass 1 for particual letter.
+    // if user selects any a,b,c pass the value to filterBy function, else pass 1 for particular letter.
     event.preventDefault();
     console.log('event object Time: ', event.target[0].value);
     console.log('event object Price: ', event.target[1].value);
