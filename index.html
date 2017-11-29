@@ -6,15 +6,15 @@
   </head>
   <body>
     <aside class="">
-    <form class="" action="index.html" method="post">
+    <form id="userFilter" action="index.html" method="post">
       <legend><h3>Filters</h3></legend> <br>
 
       <label for="time">Time</label>
-      <p><input type="text" ="Time" id="time" value=""></p>
+      <p><input type="text" name="Time" id="time" value=""></p>
       <label for="price">Price</label>
-      <p><input type="text" ="Price" id="price" value=""></p>
+      <p><input type="number" name="Price" id="price" value=""></p>
       <label for="distance">Distance</label>
-      <p><input type="text" ="Distance" id="distance" value=""></p>
+      <p><input type="number" name="Distance" id="distance" value=""></p>
       <!--<label for="food type">Food Type</label>
       <p><input type="text" ="Food type" id="food type" value=""></p>
       <label for="submitFilters"></label>-->
@@ -45,6 +45,7 @@
       <p><input type="text" ="Password" id="password" value=""></p>
     </aside>
     <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/submitFilter.js"></script>
   </body>
 </html>
 
