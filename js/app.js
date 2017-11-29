@@ -48,14 +48,40 @@ var happyHour = {
       event.target.endtime.value,
       event.target.imageurl.value
     );
+    // new business was created, cache all data
+    happyHour.cacheData();
   },
 
   cacheData: function () {
-
+    if (happyHour.business.length > 0) {
+      localStorage.business = JSON.stringify(happyHour.business);
+      console.log('cached businesses:', happyHour.business);
+    }
+    if (happyHour.user.length > 0) {
+      localStorage.user = JSON.stringify(happyHour.user);
+      console.log('cached users:', happyHour.user);
+    }
   },
 
   restoreData: function () {
-
+    if (localStorage.business) {
+      var objects = JSON.parse(localStorage.business);
+      for (var i = 0; i < objects.length; i++) {
+        var object = objects[i];
+        var b = new Business(
+          object.name,
+          object.address.street,
+          object.address.city,
+          object.address.state,
+          object.address.zip,
+          object.hhTime.start,
+          object.hhTime.end,
+          object.imgURL
+        );
+        b.distance = object.distance;
+      }
+    }
+    // TODO: Restore data for users as well
   },
 
   userFilterEventListener: function () {
@@ -77,6 +103,7 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.name = businessName;
   this.address = {};
   this.address.street = street;
+  this.address.city = city;
   this.address.state = state;
   this.address.zip = zip;
   this.hhTime = {};
@@ -97,7 +124,7 @@ function User(name, password) {
 }
 
 // console.log('Business object constructor created: ', Business);
-var shopOne = new Business('shopOne', '15 142nd', 'seattle', 'Wa', '98133', 10, 4, 6, 5);
-var shopTwo = new Business('shopTwo', '15 142nd', 'seattle', 'Wa', '98133', 5, 5, 7, 10);
-var shopThree = new Business('shopThree', '15 142nd', 'seattle', 'Wa', '98133', 10, 4, 10, 15);
-var shopFour = new Business('shopFour', '15 142nd', 'seattle', 'Wa', '98133', 15, 2, 5, 20);
+var shopOne = new Business('shopOne', '15 142nd', 'seattle', 'Wa', '98133', 4, 6, 5);
+var shopTwo = new Business('shopTwo', '15 142nd', 'seattle', 'Wa', '98133', 5, 7, 10);
+var shopThree = new Business('shopThree', '15 142nd', 'seattle', 'Wa', '98133', 4, 10, 15);
+var shopFour = new Business('shopFour', '15 142nd', 'seattle', 'Wa', '98133', 2, 5, 20);
