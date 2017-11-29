@@ -6,20 +6,37 @@ var happyHour = {
   user: [],
   selectedArray: [],
 
-  filterBy: function (time, distance, price /*foodType*/) {
-    for (var i = 0; i < businessArray.length; i++) {
-      if(((time >= businessArray[i].hhTimeStart) || (time <= (businessArray[i].hhTimeEnd - 1))) && (distance <= businessArray[i].distance) && (price <= businessArray[i].price)) /* && (foodType === businessArray[i].foodType))*/ {
-        this.selectedArray.push(businessArray[i]);
-      }
-
+  displayBusiness: function (selectedArray) {
+    for (var i = 0; i < selectedArray.length; i++) {
+      var sectionElt = document.getElementById('business-div');
+      var hOneElt = document.createElement('h3');
+      hOneElt.textContent = Business[i].name;
+      var imgElt = document.createElement('img');
+      imgElt = Business[i].imgURL;
+      var hhSectionElt = document.createElement('section');
+      hhsectionElt.textContent =  Business[i].hhTime.start;
+      var addrSectionElt = document.createElement('section');
+      addrSectionElt.textContent = 'Address:';
+      var pTag1Elt = document.createElement('p');
+      pTag1Elt.textContent = Business[i].address.street;
+      var pTag2Elt = document.createElement('p');
+      pTag2Elt.textContent = Business[i].address.state;
+      var pTag1Elt = document.createElement('p');
+      pTag1Elt.textContent = Business[i].address.zip;
     }
-
-    console.log ('filter choice', this.selectedArray);
-    return this.selectedArray;
   },
 
-  displayBusiness: function (businessArray) {
-
+  filterBy: function (time, distance, price /*foodType*/) {
+    for (var i = 0; i < happyHour.business.length; i++) {
+      console.log('happyHour.business[i]: ', happyHour.business[i]);
+      if(((time >= happyHour.business[i].hhTimeStart) || (time <= (happyHour.business[i].hhTimeEnd - 1))) && (distance <= happyHour.business[i].distance) && (price <= happyHour.business[i].price)) /* && (foodType === businessArray[i].foodType))*/ {
+        this.selectedArray.push(happyHour.business[i]);
+      }
+    }
+    //console.log('businessArray ', happyHour.business);
+    console.log ('filter choice', this.selectedArray);
+    happyHour.displayBusiness(this.selectedArray);
+    //return this.selectedArray;
   },
 
   filterOnSubmit: function (event) {
