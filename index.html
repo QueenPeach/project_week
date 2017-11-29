@@ -18,45 +18,46 @@
         </ul>
       </nav>
     </header>
-    <aside class="">
-    <form id="userFilter" action="index.html" method="post">
-      <legend><h3>Filters</h3></legend> <br>
+    <main>
+      <section id="section-signin">
+        <form id="form-signin" action="">
+          <label>Username <input type="text" name="username" required="true"></label><br>
+          <label>Passowrd <input type="password" name="password" required="true"></label><br>
+          <button type="submit" name="signin-btn">Sign In</button>
+        </form>
+      </section>
+      <aside class="">
+        <form id="userFilter" action="index.html" method="post">
+          <legend><h3>Filters</h3></legend> <br>
 
-      <label for="time">Time</label>
-      <p><input type="text" name="Time" id="time" value=""></p>
-      <label for="price">Price</label>
-      <p><input type="number" name="Price" id="price" value=""></p>
-      <label for="distance">Distance</label>
-      <p><input type="number" name="Distance" id="distance" value=""></p>
-      <!--<label for="food type">Food Type</label>
-      <p><input type="text" ="Food type" id="food type" value=""></p>
-      <label for="submitFilters"></label>-->
-      <button id="sumbitFilters" type="submit">Submit Filters</button>
-    </form>
-  </aside>
-  <main>
-    <div class="businessA">
-      <img src="" alt="">
-      <section id="address"></section>
-      <section id="shop details"></section>
-    </div>
-    <div class="businessB">
-      <img src="" alt="">
-      <section id="address"></section>
-      <section id="shop details"></section>
-    </div>
-    <div class="businessC">
-      <img src="" alt="">
-      <section id="address"></section>
-      <section id="shop details"></section>
-    </div>
-  </main>
-    <aside class="">
-      <label for="username">Username</label>
-      <p><input type="text" ="Username" id="username" value=""></p>
-      <label for="password">Password</label>
-      <p><input type="text" ="Password" id="password" value=""></p>
-    </aside>
+          <label for="time">Time</label>
+          <p><input type="text" name="Time" id="time" value=""></p>
+          <label for="price">Price</label>
+          <p><input type="number" name="Price" id="price" value=""></p>
+          <label for="distance">Distance</label>
+          <p><input type="number" name="Distance" id="distance" value=""></p>
+          <!--<label for="food type">Food Type</label>
+          <p><input type="text" ="Food type" id="food type" value=""></p>
+          <label for="submitFilters"></label>-->
+          <button id="sumbitFilters" type="submit">Submit Filters</button>
+        </form>
+      </aside>
+      <div class="businessA">
+        <img src="" alt="">
+        <section id="address"></section>
+        <section id="shop details"></section>
+      </div>
+      <div class="businessB">
+        <img src="" alt="">
+        <section id="address"></section>
+        <section id="shop details"></section>
+      </div>
+      <div class="businessC">
+        <img src="" alt="">
+        <section id="address"></section>
+        <section id="shop details"></section>
+      </div>
+    </main>
     <footer>
       <p>&copy; Happy Hours</p>
     </footer>
