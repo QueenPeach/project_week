@@ -168,9 +168,12 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
 }
 
 // User constructor
-function User(name, password) {
-  this.name = name;
+function User(userName, password) {
+  this.userName = userName;
   this.password = password;
+  happyHour.user.push(this);
+  // Cache user data
+  happyHour.cacheData(false, true);
   console.log('User object constructor created:', this);
 }
 
