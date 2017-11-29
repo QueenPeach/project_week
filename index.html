@@ -18,7 +18,9 @@
         </ul>
       </nav>
     </header>
+    <!-- Main Section -->
     <main>
+      <!-- Sign in Section -->
       <section id="section-signin">
         <form id="form-signin" action="">
           <label>Username <input type="text" name="username" required="true"></label><br>
@@ -26,12 +28,13 @@
           <button type="submit" name="signin-btn">Sign In</button>
         </form>
       </section>
+      <!-- Aside for Filiters -->
       <aside class="">
         <form id="userFilter" action="index.html" method="post">
           <legend><h3>Filters</h3></legend> <br>
-
           <label for="time">Time</label>
-          <p><input type="text" name="Time" id="time" value=""></p>
+          <!--<p><input type="text" name="Time" id="time" value=""></p>-->
+          <p><input type="time" required="true" name="Time" id="time"></p><br>
           <label for="price">Price</label>
           <p><input type="number" name="Price" id="price" value=""></p>
           <label for="distance">Distance</label>
@@ -42,7 +45,9 @@
           <button id="sumbitFilters" type="submit">Submit Filters</button>
         </form>
       </aside>
-      <div class="businessA">
+    <!-- Businesses Div -->
+    <section id='business-div'>
+      <!--<div class="businessA">
         <img src="" alt="">
         <section id="address"></section>
         <section id="shop details"></section>
@@ -56,11 +61,9 @@
         <img src="" alt="">
         <section id="address"></section>
         <section id="shop details"></section>
-      </div>
+      </div>-->
+    </section>
     </main>
-    <footer>
-      <p>&copy; Happy Hours</p>
-    </footer>
     <script type="text/javascript" src="./js/app.js"></script>
     <script type="text/javascript" src="./js/submitFilter.js"></script>
   </body>

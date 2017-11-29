@@ -6,20 +6,37 @@ var happyHour = {
   user: [],
   selectedArray: [],
 
-  filterBy: function (time, distance, price /*foodType*/) {
-    for (var i = 0; i < businessArray.length; i++) {
-      if(((time >= businessArray[i].hhTimeStart) || (time <= (businessArray[i].hhTimeEnd - 1))) && (distance <= businessArray[i].distance) && (price <= businessArray[i].price)) /* && (foodType === businessArray[i].foodType))*/ {
-        this.selectedArray.push(businessArray[i]);
-      }
-
+  displayBusiness: function (selectedArray) {
+    for (var i = 0; i < selectedArray.length; i++) {
+      var sectionElt = document.getElementById('business-div');
+      var hOneElt = document.createElement('h3');
+      hOneElt.textContent = Business[i].name;
+      var imgElt = document.createElement('img');
+      imgElt = Business[i].imgURL;
+      var hhSectionElt = document.createElement('section');
+      hhsectionElt.textContent =  Business[i].hhTime.start;
+      var addrSectionElt = document.createElement('section');
+      addrSectionElt.textContent = 'Address:';
+      var pTag1Elt = document.createElement('p');
+      pTag1Elt.textContent = Business[i].address.street;
+      var pTag2Elt = document.createElement('p');
+      pTag2Elt.textContent = Business[i].address.state;
+      var pTag1Elt = document.createElement('p');
+      pTag1Elt.textContent = Business[i].address.zip;
     }
-
-    console.log ('filter choice', this.selectedArray);
-    return this.selectedArray;
   },
 
-  displayBusiness: function (businessArray) {
-
+  filterBy: function (time, distance, price /*foodType*/) {
+    for (var i = 0; i < happyHour.business.length; i++) {
+      console.log('happyHour.business[i]: ', happyHour.business[i]);
+      if(((time >= happyHour.business[i].hhTimeStart) || (time <= (happyHour.business[i].hhTimeEnd - 1))) && (distance <= happyHour.business[i].distance) && (price <= happyHour.business[i].price)) /* && (foodType === businessArray[i].foodType))*/ {
+        this.selectedArray.push(happyHour.business[i]);
+      }
+    }
+    //console.log('businessArray ', happyHour.business);
+    console.log ('filter choice', this.selectedArray);
+    happyHour.displayBusiness(this.selectedArray);
+    //return this.selectedArray;
   },
 
   filterOnSubmit: function (event) {
@@ -57,6 +74,7 @@ var happyHour = {
       event.target.addrzip.value,
       event.target.starttime.value,
       event.target.endtime.value,
+      event.target.pricing.value,
       event.target.imageurl.value
     );
     // new business was created, cache all data
@@ -88,6 +106,7 @@ var happyHour = {
           object.address.zip,
           object.hhTime.start,
           object.hhTime.end,
+          object.pricing,
           object.imgURL
         );
         b.distance = object.distance;
@@ -150,7 +169,7 @@ var happyHour = {
 };
 
 // Business constructor
-function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, imgURL) {
+function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, pricing, imgURL) {
   this.name = businessName;
   this.address = {};
   this.address.street = street;
@@ -161,6 +180,7 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.hhTime.start = hhTimeStart;
   this.hhTime.end = hhTimeEnd;
   this.imgURL = imgURL;
+  this.pricing = pricing;
   // all businesses will be 0..15 miles away
   this.distance = Math.floor(Math.random() * 15);
   happyHour.business.push(this);
@@ -178,8 +198,8 @@ function User(userName, password) {
 }
 
 // console.log('Business object constructor created: ', Business);
-new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
-new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
-new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
-new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
+new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '1', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '3', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
+new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '4', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
+new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
 new User('user', 'password');
