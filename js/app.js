@@ -60,26 +60,27 @@ var happyHour = {
       event.target.imageurl.value
     );
     // new business was created, cache all data
-    happyHour.cacheData();
+    happyHour.cacheData(true, false);
   },
 
-  cacheData: function () {
-    if (happyHour.business.length > 0) {
+  cacheData: function (cacheBusiness, cacheUser) {
+    if (cacheBusiness && happyHour.business.length > 0) {
       localStorage.business = JSON.stringify(happyHour.business);
-      console.log('cached businesses:', happyHour.business);
     }
-    if (happyHour.user.length > 0) {
+    if (cacheUser && happyHour.user.length > 0) {
       localStorage.user = JSON.stringify(happyHour.user);
-      console.log('cached users:', happyHour.user);
     }
   },
 
   restoreData: function () {
+    console.log('Restoring data!');
+    // Restore business data
     if (localStorage.business) {
-      var objects = JSON.parse(localStorage.business);
-      for (var i = 0; i < objects.length; i++) {
-        var object = objects[i];
-        var b = new Business(
+      happyHour.business = [];
+      let objects = JSON.parse(localStorage.business);
+      for (let i = 0; i < objects.length; i++) {
+        let object = objects[i];
+        let b = new Business(
           object.name,
           object.address.street,
           object.address.city,
@@ -92,7 +93,15 @@ var happyHour = {
         b.distance = object.distance;
       }
     }
-    // TODO: Restore data for users as well
+    // Restore user data
+    if (localStorage.user) {
+      happyHour.user = [];
+      let objects = JSON.parse(localStorage.user);
+      for (let i = 0; i < objects.length; i++) {
+        let object = objects[i];
+        new User(object.userName, object.password);
+      }
+    }
   },
 
   userFilterEventListener: function () {
