@@ -198,8 +198,28 @@ function User(userName, password) {
 }
 
 // console.log('Business object constructor created: ', Business);
-new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '1', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
-new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '3', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
-new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '4', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
+new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '14', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '9', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
+new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '11', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
 new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
+new Business('Hotel Andra', '2000 4th Ave', 'Seattle', 'WA', '98121', '16:00', '19:00', '20', 'https://s3-media1.fl.yelpcdn.com/bphoto/Njh7iweDZAPXlHhpe8CatQ/o.jpg');
+new Business('Ashley\'s Salmon Cookie Pub', '8764 1st Ave', 'Seattle', 'WA', '98121', '13:00', '19:00', '5', 'https://media4.s-nbcnews.com/j/streams/2013/March/130328/1C6676403-gsbeer.today-inline-large.jpg');
+new Business('Ive Had Better', '6969 0th St', 'Seattle', 'WA', '98121', '14:00', '18:30', '3', 'http://d-hangout.com/site/assets/files/1089/pbr.jpg');
+
+new Business('Pike Place Chowder', '1530 Post Aly', 'Ste 11', 'Seattle', 'WA', '98121', '16:00', '18:00','5', 'https://s3-media3.fl.yelpcdn.com/bphoto/ijju-wYoRAxWjHPTCxyQGQ/348s.jpg');
+new Business('Tacos Chukis', '219 Broadway E', 'Seattle', 'WA', '98102', '14:00', '19:00', '4', 'https://s3-media4.fl.yelpcdn.com/bphoto/cCRwyQyspK-xaWM732zKnw/o.jpg');
+new Business('Altura', '617 Broadway E', 'Seattle', 'WA', '98102', '15:00', '18:00', '18', 'http://www.seattlemag.com/sites/default/files/field/image/1112altura.jpg');
+new Business('Witness', '410 Broadway E', 'Seattle', 'WA','98102', '22:00', '01:00', '5', 'https://s3-media4.fl.yelpcdn.com/bphoto/nWgv_ROWRuoen0oyAxVh6A/o.jpg');
+new Business('Serafina', '2043 Eastlake Ave E', 'Seattle', 'WA', '98102', '15:00', '18:00', '5', 'https://s3-media1.fl.yelpcdn.com/bphoto/apkvllYgsu5X-os9j66zEQ/348s.jpg');
+new Business('Steve\'s Pizza Mart', '1234 Sesame St', 'Seattle', 'WA', '98102', '16:00', '18:00', '5', 'https://itsgoingdown.org/wp-content/uploads/2017/08/zzzz.jpeg');
+
+new Business('The Pink Door', '1919 Post Aly', 'Seattle', 'WA', '98101', '21:00', '02:00', '20', 'https://s3-media4.fl.yelpcdn.com/bphoto/4MmMuSGEQCXpqEoCOhL7tw/o.jpg');
+new Business('Japonessa', '1400 1st Ave', 'Seattle', 'WA', '98101', '15:00', '17:30', '15', 'https://s3-media4.fl.yelpcdn.com/bphoto/vucCrknnlu1RRvRaKWwovQ/348s.jpg');
+new Business('Jay\'s Watering Hole', '6969 4th Ave', 'Seattle', 'WA', '98101', '10:00', '02:00', '1', 'https://i.pinimg.com/736x/2b/3f/8c/2b3f8ca832696337a551dd1d382a7241--restaurant-bar-stools-restaurant-bar-design.jpg');
+new Business('Purple Cafe and Wine bar', '1225 4th Ave', 'Seattle', 'WA', '98101', '16:00', '18:00', '22', 'https://s3-media3.fl.yelpcdn.com/bphoto/mKmgyZbM-Dg0GMd8izvnUA/o.jpg');
+new Business('Sweet Iron', '1200 3rd Ave', 'Seattle', 'WA', '98101', '14:00', '19:00', '5', 'https://s3-media1.fl.yelpcdn.com/bphoto/_BwGQVTPqGOLUyB9CStMCA/o.jpg');
+new Business('Liberty\'s Broiler', '9876 13th Ave', 'Seattle', 'WA', '98101', '15:00', '18:00', '25', 'http://buyourbottles.com/blog/wp-content/uploads/2013/09/750mlCelebration_WO_Badge_0297f_RGB_FNL.jpg');
+new Business('Super Happy Fun Time', '8142 3rd St', 'Seattle', 'WA', '98101', '21:00', '02:00', '8', 'https://www.diggersservicesclub.com.au/wp/wp-content/uploads/2016/02/group-of-people-at-bar.jpg');
+
+
 new User('user', 'password');
