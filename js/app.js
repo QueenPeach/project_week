@@ -115,6 +115,37 @@ var happyHour = {
     // attach event listener to the add new business form
     var form = document.getElementById('newbusiness');
     form.addEventListener('submit', happyHour.createOnSubmit);
+  },
+
+  prepareSignInEventListener: function () {
+    // attach event listener to the sign in form
+    var form = document.getElementById('form-signin');
+    form.addEventListener('submit', happyHour.signIn);
+  },
+
+  signIn: function (event) {
+    // Handle event of a user trying to sign in
+    event.preventDefault();
+    var userName = event.target.username.value;
+    var password = event.target.password.value;
+    /* Look for user that matches provided username. If found, validate */
+    for (let i = 0; i < happyHour.user.length; i++) {
+      let user = happyHour.user[i];
+
+      if (userName !== user.userName) {
+        continue;
+      }
+
+      if (password !== user.password) {
+        console.log('Invalid password! Not logged in.');
+        return;
+      } else {
+        console.log('Successfully logged in!');
+        return;
+      }
+    }
+
+    console.log('Invalid Username!');
   }
 };
 
