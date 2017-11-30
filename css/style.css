@@ -165,7 +165,7 @@ header #signin_panel {
   background: #395f74;
   border-radius: 0px 0px 8px 8px;
   overflow: hidden;
-  z-index: 10000;
+  z-index: 100000;
   transition: height 0.3s linear 0s;
 }
 header #signin_panel > div {
@@ -209,7 +209,7 @@ input {
 #filter-section {
   position: fixed;
   left: 11%;
-	margin-top: 20px;
+	margin-top: 150px;
 }
 
 #business-section {
