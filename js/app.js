@@ -280,6 +280,10 @@ var happyHour = {
 function showHideButton(btnId, visible) {
   var btn = document.getElementById(btnId);
 
+  if (!btn) {
+    return;
+  }
+
   if (visible) {
     btn.style.visibility = 'visible';
   } else {

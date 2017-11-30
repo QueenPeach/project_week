@@ -1,3 +1,5 @@
 'use strict';
 
-happyHour.prepareSignInEventListener();
+happyHour.configureSignOutBtn();
+happyHour.configureSignInPanel();
+happyHour.restoreData();

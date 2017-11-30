@@ -4,57 +4,75 @@
     <title>Happy Hours | About Us</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/about-us.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Fugaz+One|Hind|Lora|Poppins" rel="stylesheet">
   </head>
   <body>
+    <!-- Header Section -->
     <header>
-      <h1 id="happyhour">Happy Hours</h1>
-      <img id="logo-png" src="../img/old_beer_mug.png" alt="beer cup">
-      <nav class="topnav">
-          <a class="homelink" href="../index.html"><i class="fa fa-home" aria-hidden="true"> Home</i></a>
-          <a class="aboutus" href="about-us.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
-          <a class="profile" href="#"><i class="fa fa-user-circle" aria-hidden="true"> Profile</i></a>
-      </nav>
+      <div id="topnav">
+        <div class="header-block" id="logo-div">
+          <h1>Happy Hours</h1>
+          <img id="logo-png" src="../img/old_beer_mug.png" alt="beer cup">
+        </div>
+        <div class="header-block"><a href="index.html">Home</a></div>
+        <div class="header-block"><a href="html/about-us.html">About Us</a></div>
+        <div class="header-block" id="signin-div">
+          <button id="signin-btn-toggle" type="button">Sign In <span id="arrow">&#9662;</span></button>
+          <button id="signout-btn" type="button">Sign Out</button>
+        </div>
+      </div>
+      <!-- Toggle-able sign-in panel -->
+      <div id="signin_panel">
+        <div>
+          <form id="form-signin">
+            <input type="text" placeholder="username" name="username" required="true"><br>
+            <input type="password" placeholder="password" name="password" required="true"><br>
+            <button type="submit" name="signin-btn">Sign In</button>
+          </form>
+        </div>
+      </div>
     </header>
     <main>
-      <section id="section-signin">
-        <form id="form-signin" action="">
-          <label for="username">Username: <input type="text" name="username" required="true"></label><br>
-          <label for="password">Password: <input type="password" name="password" required="true"></label><br>
-          <button type="submit" name="signin-btn">Sign In</button>
-        </form>
+      <section  id='aboutus-h1-section'>
+        <h1>About Us</h1>
       </section>
-      <h1 id='aboutus-h1'>About Us</h1>
       <!-- Jay's section -->
-      <section class = "aboutus-info">
-        <h3 class="nameone-h3">Jay</h3>
-        <p class="aboutus-paraone">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <img class="jaypic" src="../img/ashley.jpg" alt="">
+      <section class="section-2-column img-sect">
+        <img src="../img/ashley.jpg" alt="">
+      </section>
+      <section class="section-2-column">
+        <h3>Jay</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </section>
 
       <section class= "aboutus-border"></section>
       <!-- Ashley's section -->
-      <section class="aboutus-info">
-        <h3 class="nametwo-h3">Ashley</h3>
-        <p class="aboutus-paratwo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <img class="ashleypic" src="../img/ashley.jpg" alt="">
+      <section class="section-2-column">
+        <h3>Ashley</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </section>
+      <section class="section-2-column img-sect">
+        <img src="../img/ashley.jpg" alt="">
       </section>
 
       <section class= "aboutus-border"></section>
       <!-- Steve's section -->
-      <section class="aboutus-info">
-        <h3 class="nameone-h3">Steve</h3>
-        <p class="aboutus-paraone">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <img class="stevepic" src="../img/ashley.jpg" alt="">
+      <section class="section-2-column img-sect">
+        <img src="../img/ashley.jpg" alt="">
+      </section>
+      <section class="section-2-column">
+        <h3>Steve</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </section>
 
       <section class= "aboutus-border"></section>
       <!-- Liberty's section -->
-      <section class="aboutus-info">
-        <h3 class="nametwo-h3">Liberty</h3>
-        <p class="aboutus-paratwo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <img class="libertypic" src="../img/ashley.jpg" alt="">
+      <section class="section-2-column">
+        <h3>Liberty</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </section>
+      <section class="section-2-column img-sect">
+        <img src="../img/ashley.jpg" alt="">
       </section>
 
       <section class= "aboutus-border"></section>
