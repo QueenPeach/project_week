@@ -1,5 +1,7 @@
 'use strict';
 
-happyHour.restoreData();
-happyHour.prepareSignInEventListener();
+happyHour.configureSignOutBtn();
+happyHour.configureSignInPanel();
 happyHour.userFilterEventListener();
+happyHour.restoreData();
+happyHour.displayBusiness(happyHour.business);

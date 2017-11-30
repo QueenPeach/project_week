@@ -1,3 +1,238 @@
+/* CSS Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* --------------------- End of CSS Reset ----------------- */
+
+/* Start of page CSS */
+body {
+  background: #fff;
+}
+
+main {
+  margin-top: 30px;
+}
+
+/* Header styles */
+header #topnav {
+  height: 60px;
+  background: #fafafa;
+  box-shadow: 0px 5px 5px #959292;
+}
+header #topnav .header-block {
+  /*border: 1px solid black;*/
+  display: inline-block;
+  width: calc(100% / 4);
+  height: 100%;
+  margin-left: -3px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+}
+footer {
+  text-align: center;
+}
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+}
+h2 {
+  font-family: 'Hind', sans-serif;
+  font-size: 25px;
+}
+h3, h4, h5, h6 {
+  font-family: 'Hind', sans-serif;
+}
+h4, h5, h6 {
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+}
+h3 {
+  font-size: 22px;
+}
+p {
+  font-family: 'Lora', serif;
+}
+
+#logo-div h1, #logo-div img {
+  float: left;
+  margin: 0px 8px 0px 8px;
+}
+#logo-div h1 {
+    font-family: 'Fugaz One', cursive;
+    font-size: 30px;
+    color: #5d001e;
+}
+
+#signin-div button {
+  float: right;
+  border-radius: 3px;
+  margin: 31px 5px 0px 0px;
+  background-color: #395f74;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+button {
+  border-radius: 3px;
+  /*margin: 31px 5px 0px 0px;*/
+  background-color: #395f74;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
 #logo-png {
-  height: 80px;
+  max-height: 55px;
+}
+
+/*
+ * Link styles
+ */
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: #292929;
+}
+a:hover,
+a:active {
+  color: #727272;
+}
+
+header #signin_panel {
+  position: absolute;
+  top: 60px;
+  height: 0px;
+  width: 100%;
+  background: #395f74;
+  border-radius: 0px 0px 8px 8px;
+  overflow: hidden;
+  z-index: 10000;
+  transition: height 0.3s linear 0s;
+}
+header #signin_panel > div {
+  background: #333;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+/*
+ * Input Field Styling
+ */
+input {
+  margin: 2px 0;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #959292;
+  color: white;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+.section-2-column {
+  /* display: inline-block; */
+  /* margin: 5% 0; */
+  /* margin-left: calc((100% / 3) / 3); */
+}
+
+#filter-section {
+  position: fixed;
+  left: 11%;
+}
+
+#business-section {
+  margin-left: 28%;
+  margin-right:11%;
+}
+
+.bus-card {
+  /* margin: 20px; */
+  padding: 20px;
+}
+
+.bus-card img {
+  display: block;
+  /* margin: 5px 0px 5px 0px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: 95%;
+}
+
+/* section that contains the add new section button */
+#add-new-btn {
+  margin-left: 54%;
+}
+
+.business-card-4-column {
+  display: inline-block;
+  width: 25%;
+  height: 50px;
+  text-align: left;
+  vertical-align: middle;
 }
