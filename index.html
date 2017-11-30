@@ -3,68 +3,54 @@
   <head>
     <title>Happy Hours | Home</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One|Hind|Lora|Poppins" rel="stylesheet">
   </head>
   <body>
     <!-- Header Section -->
     <header>
-      <h1>Happy Hours</h1>
-      <img id="logo-png" src="img/old_beer_mug.png" alt="beer cup">
-      <nav class="topnav">
-        <ul>
-          <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"> Home</i></a></li>
-          <li><a href="html/about-us.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a></li>
-          <li><a href="#"><i class="fa fa-user-circle" aria-hidden="true"> Profile</i></a></li>
-        </ul>
-      </nav>
+      <div id="topnav">
+        <div class="header-block" id="logo-div">
+          <h1>Happy Hours</h1>
+          <img id="logo-png" src="img/old_beer_mug.png" alt="beer cup">
+        </div>
+        <div class="header-block"><a href="index.html">Home</a></div>
+        <div class="header-block"><a href="html/about-us.html">About Us</a></div>
+        <div class="header-block" id="signin-div">
+          <button id="signin-btn-toggle" type="button">Sign In <span id="arrow">&#9662;</span></button>
+          <button id="signout-btn" type="button">Sign Out</button>
+        </div>
+      </div>
+      <!-- Toggle-able sign-in panel -->
+      <div id="signin_panel">
+        <div>
+          <form id="form-signin">
+            <input type="text" placeholder="username" name="username" required="true"><br>
+            <input type="password" placeholder="password" name="password" required="true"><br>
+            <button type="submit" name="signin-btn">Sign In</button>
+          </form>
+        </div>
+      </div>
     </header>
     <!-- Main Section -->
     <main>
-      <div id="add-new-div">
-        <button id="add-new-btn" type="button" name="addnew">Add New</button>
-      </div>
-      <!-- Sign in Section -->
-      <section id="section-signin">
-        <form id="form-signin" action="">
-          <label>Username <input type="text" name="username" required="true"></label><br>
-          <label>Passowrd <input type="password" name="password" required="true"></label><br>
-          <button type="submit" name="signin-btn">Sign In</button>
+      <section id="add-new-section">
+        <form action="html/add-new.html">
+          <button id="add-new-btn" type="submit" value="Create New Business">Add New</button>
         </form>
       </section>
-      <!-- Aside for Filiters -->
-      <aside class="">
-        <form id="userFilter" action="index.html" method="post">
-          <legend><h3>Filters</h3></legend> <br>
-          <label for="time">Time</label>
-          <!--<p><input type="text" name="Time" id="time" value=""></p>-->
-          <p><input type="time" required="true" name="Time" id="time"></p><br>
-          <label for="price">Price</label>
-          <p><input type="number" name="Price" id="price" value=""></p>
-          <label for="distance">Distance</label>
-          <p><input type="number" name="Distance" id="distance" value=""></p>
-          <!--<label for="food type">Food Type</label>
-          <p><input type="text" ="Food type" id="food type" value=""></p>
-          <label for="submitFilters"></label>-->
-          <button id="submitFilters" type="submit">Submit Filters</button>
+      <!-- Filter Section -->
+      <section class="section-2-column" id="filter-section">
+        <form id="filter-form" action="index.html" method="post">
+          <legend><h2>Filters</h2></legend> <br>
+          <label><h3>Time</h3><input type="time" name="time"></label><br>
+          <label><h3>Max Price</h3><input type="number" placeholder="dollars" min="0" name="price"></label><br>
+          <label><h3>Proximity</h3><input type="number" placeholder="miles" min="0" name="proximity"></label><br>
+          <label><h3>Zip Code</h3><input type="text" name="zip" pattern="[0-9]{5}"></label><br>
+          <button type="submit" name="submit">Filter Now</button>
         </form>
-      </aside>
+      </section>
       <!-- Businesses Div -->
-      <section id='business-div'>
-        <!--<div class="businessA">
-          <img src="" alt="">
-          <section id="address"></section>
-          <section id="shop details"></section>
-        </div>
-        <div class="businessB">
-          <img src="" alt="">
-          <section id="address"></section>
-          <section id="shop details"></section>
-        </div>
-        <div class="businessC">
-          <img src="" alt="">
-          <section id="address"></section>
-          <section id="shop details"></section>
-        </div>-->
+      <section class="section-2-column" id="business-section">
       </section>
     </main>
     <footer>
