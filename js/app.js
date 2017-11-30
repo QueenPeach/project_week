@@ -6,34 +6,53 @@ var happyHour = {
   user: [],
   selectedArray: [],
 
-  displayBusiness: function (selectedArray) {
-    for (var i = 0; i < selectedArray.length; i++) {
+  displayBusiness: function (selectedBusArray) {
+    console.log('HEREE...!!!', selectedBusArray);
+    for (var i = 0; i < selectedBusArray.length; i++) {
       var sectionElt = document.getElementById('business-div');
-      var hOneElt = document.createElement('h3');
-      hOneElt.textContent = Business[i].name;
+      var busCardElt = document.createElement('div');
+      sectionElt.appendChild(busCardElt);
+
+      var h3Elt = document.createElement('h3');
+      busCardElt.appendChild(h3Elt);
+      h3Elt.textContent = selectedBusArray[i].name;
+
       var imgElt = document.createElement('img');
-      imgElt = Business[i].imgURL;
+      imgElt.src = selectedBusArray[i].imgURL;
+      busCardElt.appendChild(imgElt);
+
       var hhSectionElt = document.createElement('section');
-      hhsectionElt.textContent =  Business[i].hhTime.start;
+      hhSectionElt.textContent = 'Start: ' + convertToTime(selectedBusArray[i].hhTime.start) + ', End: ' + convertToTime(selectedBusArray[i].hhTime.end);
+      busCardElt.appendChild(hhSectionElt);
+
       var addrSectionElt = document.createElement('section');
       addrSectionElt.textContent = 'Address:';
+      busCardElt.appendChild(addrSectionElt);
+
       var pTag1Elt = document.createElement('p');
-      pTag1Elt.textContent = Business[i].address.street;
+      pTag1Elt.textContent = selectedBusArray[i].address.street;
+      addrSectionElt.appendChild(pTag1Elt);
+
       var pTag2Elt = document.createElement('p');
-      pTag2Elt.textContent = Business[i].address.state;
-      var pTag1Elt = document.createElement('p');
-      pTag1Elt.textContent = Business[i].address.zip;
+      pTag2Elt.textContent = selectedBusArray[i].address.state;
+      addrSectionElt.appendChild(pTag2Elt);
+
+      var pTag3Elt = document.createElement('p');
+      pTag3Elt.textContent = selectedBusArray[i].address.zip;
+      addrSectionElt.appendChild(pTag3Elt);
     }
   },
 
   filterBy: function (time, distance, price /*foodType*/) {
     for (var i = 0; i < happyHour.business.length; i++) {
-      console.log('happyHour.business[i]: ', happyHour.business[i]);
-      if(((time >= happyHour.business[i].hhTimeStart) || (time <= (happyHour.business[i].hhTimeEnd - 1))) && (distance <= happyHour.business[i].distance) && (price <= happyHour.business[i].price)) /* && (foodType === businessArray[i].foodType))*/ {
+      console.log('time: ', time);
+      console.log('happyHour.business[i].hhTime.start: ', happyHour.business[i].hhTime.start);
+      console.log('happyHour.business[i].hhTime.end: ', happyHour.business[i].hhTime.end);
+      if(((time >= happyHour.business[i].hhTime.start) && (time <= (happyHour.business[i].hhTime.end - 1))) && (distance <= happyHour.business[i].distance) && (price <= happyHour.business[i].pricing)) /* && (foodType === businessArray[i].foodType))*/ {
         this.selectedArray.push(happyHour.business[i]);
       }
     }
-    //console.log('businessArray ', happyHour.business);
+    //  console.log('businessArray ', happyHour.business);
     console.log ('filter choice', this.selectedArray);
     happyHour.displayBusiness(this.selectedArray);
     //return this.selectedArray;
@@ -43,9 +62,9 @@ var happyHour = {
     // a(time), b(distance), c(price), d(foodType)
     // if user selects any a,b,c pass the value to filterBy function, else pass 1 for particular letter.
     event.preventDefault();
-    console.log('event object Time: ', event.target[0].value);
-    console.log('event object Price: ', event.target[1].value);
-    console.log('event object Distance: ', event.target[2].value);
+    var filterTime = convertTime(event.target[0].value);
+    var filterPrice = event.target[1].value;
+    var filterDistance = event.target[2].value;
 
     if (event.target[0].value === '') {
       event.target[0].value = 1;
@@ -57,9 +76,9 @@ var happyHour = {
       event.target[2].value = 1;
     }
 
-    console.log(event.target[0].value, event.target[1].value, event.target[2].value);
+    console.log(filterTime, filterPrice, filterDistance);
 
-    happyHour.filterBy(event.target[0].value, event.target[1].value, event.target[2].value);
+    happyHour.filterBy(filterTime, filterPrice, filterDistance);
 
   },
 
@@ -168,6 +187,23 @@ var happyHour = {
   }
 };
 
+function convertTime(timeString) {
+  var timeArray = timeString.split(':');
+
+  return parseInt(timeArray[0]) * 100 + parseInt(timeArray[1]);
+}
+
+function convertToTime(numb) {
+  var ampm = 'AM';
+  if (numb > 1159){
+    ampm = 'PM';
+  }
+  var hours = Math.floor(numb / 100);
+  var minutes = numb % 100;
+
+  return hours + ':' + minutes + ':' + ampm;
+}
+
 // Business constructor
 function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd, pricing, imgURL) {
   this.name = businessName;
@@ -177,10 +213,10 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.address.state = state;
   this.address.zip = zip;
   this.hhTime = {};
-  this.hhTime.start = hhTimeStart;
-  this.hhTime.end = hhTimeEnd;
+  this.hhTime.start = convertTime(hhTimeStart);
+  this.hhTime.end = convertTime(hhTimeEnd);
   this.imgURL = imgURL;
-  this.pricing = pricing;
+  this.pricing = parseInt(pricing);
   // all businesses will be 0..15 miles away
   this.distance = Math.floor(Math.random() * 15);
   happyHour.business.push(this);
@@ -198,8 +234,8 @@ function User(userName, password) {
 }
 
 // console.log('Business object constructor created: ', Business);
-new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '1', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
-new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '3', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
-new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '4', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
+new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '10', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '15', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
+new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '20', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
 new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
 new User('user', 'password');
