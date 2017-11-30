@@ -10,33 +10,39 @@
   <body>
     <!-- Header Section -->
     <header>
-      <h1>Happy Hours</h1>
-      <img id="logo-png" src="../img/old_beer_mug.png" alt="beer cup">
-      <nav class="topnav">
-        <ul>
-          <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"> Home</i></a></li>
-          <li><a href="about-us.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a></li>
-          <li><a href="#"><i class="fa fa-user-circle" aria-hidden="true"> Profile</i></a></li>
-        </ul>
-      </nav>
+      <div id="topnav">
+        <div class="header-block" id="logo-div">
+          <h1>Happy Hours</h1>
+          <img id="logo-png" src="../img/old_beer_mug.png" alt="beer cup">
+        </div>
+        <div class="header-block"><a href="../index.html">Home</a></div>
+        <div class="header-block"><a href="about-us.html">About Us</a></div>
+        <div class="header-block" id="signin-div">
+          <button id="signin-btn-toggle" type="button">Sign In <span id="arrow">&#9662;</span></button>
+          <button id="signout-btn" type="button">Sign Out</button>
+        </div>
+      </div>
+      <!-- Toggle-able sign-in panel -->
+      <div id="signin_panel">
+        <div>
+          <form id="form-signin">
+            <input type="text" placeholder="username" name="username" required="true"><br>
+            <input type="password" placeholder="password" name="password" required="true"><br>
+            <button type="submit" name="signin-btn">Sign In</button>
+          </form>
+        </div>
+      </div>
     </header>
     <!-- Main Section -->
-    <main>
-      <section id="section-signin">
-        <form id="form-signin" action="">
-          <label>Username <input type="text" name="username" required="true"></label><br>
-          <label>Passowrd <input type="password" name="password" required="true"></label><br>
-          <button type="submit" name="signin-btn">Sign In</button>
-        </form>
-      </section>
+    <main id="add-new-main">
       <section>
         <h1>Add New Business</h1>
         <form id="newbusiness">
           <fieldset>
             <legend>Business Details:</legend>
-            <label>Name <input type="text" placeholder="Americana" name="businessname" required="true"></label><br>
-            <label>Address <input type="text" placeholder="1234 1st Ave SW" name="addrstreet" required="true"></label><br>
-            <label>City/Town <input type="text" placeholder="Seattle" name="addrcity" required="true"></label>
+            <label>Name <input type="text" name="businessname" required="true"></label><br>
+            <label>Address <input type="text" name="addrstreet" required="true"></label><br>
+            <label>City/Town <input type="text" name="addrcity" required="true"></label>
             <select name="addrstate" required="true">
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -110,7 +116,8 @@
     <footer>
       <p>&copy; Happy Hours</p>
     </footer>
-    <script src="../js/app.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
     <script src="../js/add-new.js"></script>
   </body>
 </html>

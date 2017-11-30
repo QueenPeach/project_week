@@ -1,0 +1,37 @@
+body{
+  background-size: contain;
+}
+
+#add-new-main{
+    background-image: url(http://d-hangout.com/site/assets/files/1089/pbr.jpg);
+    color: yellow;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 450px;
+}
+
+#add-new-main h1{
+  font-family: 'Poppins', sans-serif;
+}
+
+#newbusiness legend{
+  font-family: 'Hind', sans-serif;
+}
+
+#newbusiness label {
+  font-family: 'Lora', serif;
+}
+
+#newbusiness{
+  border-width: thick;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+#newbusiness fieldset label input{
+  padding: 5px;
+  text-size-adjust: auto;
+  text-align: center;
+  margin: 6px;
+}
