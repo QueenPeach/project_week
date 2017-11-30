@@ -1,0 +1,113 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: #ADA8A4;
+  margin-bottom: 50px;
+}
+
+#happyhour {
+
+  position: absolute;
+  font-family: 'Fugaz One', cursive;
+  font-size: 300%;
+  text-shadow: 2px 2px 3px gray;
+  margin-left: 500px;
+}
+
+#logo-png {
+
+  margin-left: 805px;
+  margin-top: 45px;
+}
+
+#section-signin {
+
+  float: right;
+  margin-right: 150px;
+  margin-top: -190px;
+  font-family: 'Poppins', sans-serif;
+}
+
+label {
+    display: inline-block;
+    width: 50px;
+    font-family: 'Hind', sans-serif;
+}
+
+#aboutus-h1 {
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 600px;
+  margin-top: -50px;
+}
+
+.aboutus-paraone {
+  font-family: 'Lora', serif;
+  padding: 20px;
+  text-align: right;
+  margin-right: 180px;
+}
+
+.aboutus-paratwo {
+  font-family: 'Lora', serif;
+  padding: 20px;
+  margin-left: 150px;
+  padding-left: 30px;
+}
+
+.nameone-h3 {
+  font-family: 'Hind', sans-serif;
+  font-size: 150%;
+  margin-bottom: -10px;
+  text-align: right;
+  margin-right: 205px;
+}
+
+.nametwo-h3 {
+  font-family: 'Hind', sans-serif;
+  margin-left: 180px;
+  font-size: 150%;
+  margin-bottom: -10px;
+}
+
+
+.aboutus-border {
+  border-top: 2px solid rgba(0, 0, 0, .2);
+}
+
+.ashleypic {
+  float: left;
+  padding: 0 40px 40px 0;
+  margin-top: -165px;
+  margin-left: 20px;
+}
+
+.libertypic {
+  float: left;
+  padding: 0 40px 40px 0;
+  margin-top: -165px;
+  margin-left: 20px;
+}
+
+.stevepic {
+  float: right;
+  padding: 0 40px 40px 0;
+  margin-top: -165px;
+  margin-left: 20px;
+}
+
+.jaypic {
+  float: right;
+  padding: 0 40px 40px 0;
+  margin-top: -165px;
+  margin-left: 20px;
+}
+
+footer {
+  background-color: #ADA8A4;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+}

@@ -334,7 +334,7 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.hhTime.start = convertTimeString(hhTimeStart);
   this.hhTime.end = convertTimeString(hhTimeEnd);
   this.imgURL = imgURL;
-  this.pricing = pricing;
+  this.pricing = parseInt(pricing);
   // all businesses will be 0..15 miles away
   this.distance = Math.floor(Math.random() * 15);
   happyHour.business.push(this);
