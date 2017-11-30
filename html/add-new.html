@@ -44,6 +44,7 @@
             <label>Address <input type="text" name="addrstreet" required="true"></label><br>
             <label>City/Town <input type="text" name="addrcity" required="true"></label>
             <select name="addrstate" required="true">
+              <option value=""></option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -96,8 +97,8 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-            <label>Zip <input type="text" placeholder="98102" name="addrzip" pattern="[0-9]{5}" required="true"></label><br>
-            <label>Happy Hour <input type="time" required="true" name="starttime"> to <input type="time" required="true" name="endtime"></label>
+            <label>Zip <input type="text" name="addrzip" pattern="[0-9]{5}" required="true"></label><br>
+            <label>Happy Hour <input type="time" required="true" name="starttime"> to <input type="time" required="true" name="endtime"></label><br>
             <label>Pricing
               <select name="pricing" required="true">
                 <option value="5">$</option>

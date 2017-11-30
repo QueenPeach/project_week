@@ -12,10 +12,15 @@ body{
 
 #add-new-main h1{
   font-family: 'Poppins', sans-serif;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #newbusiness legend{
   font-family: 'Hind', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 #newbusiness label {
