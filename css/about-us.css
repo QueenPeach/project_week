@@ -1,47 +1,17 @@
-body {
-  padding: 0;
-  margin: 0;
+.img-sect {
+  text-align: center;
 }
 
-header {
-  background-color: #ADA8A4;
-  margin-bottom: 50px;
-}
-
-#happyhour {
-
-  position: absolute;
-  font-family: 'Fugaz One', cursive;
-  font-size: 300%;
-  text-shadow: 2px 2px 3px gray;
-  margin-left: 500px;
-}
-
-#logo-png {
-
-  margin-left: 805px;
-  margin-top: 45px;
-}
-
-#section-signin {
-
-  float: right;
-  margin-right: 150px;
-  margin-top: -190px;
+#aboutus-h1-section {
   font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
 
-label {
-    display: inline-block;
-    width: 50px;
-    font-family: 'Hind', sans-serif;
-}
-
-#aboutus-h1 {
-  position: absolute;
-  font-family: 'Poppins', sans-serif;
-  margin-left: 600px;
-  margin-top: -50px;
+.section-2-column {
+  display: inline-block;
+  width: calc(100% / 3);
+  margin: 5% 0;
+  margin-left: calc((100% / 3) / 3);
 }
 
 .aboutus-paraone {
