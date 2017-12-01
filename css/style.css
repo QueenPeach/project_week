@@ -58,6 +58,11 @@ main {
 }
 
 /* Header styles */
+#stay-there{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
 header #topnav {
   height: 60px;
   background: #fafafa;
@@ -204,6 +209,7 @@ input {
 #filter-section {
   position: fixed;
   left: 11%;
+	margin-top: 20px;
 }
 
 #business-section {
@@ -226,6 +232,7 @@ input {
 
 /* section that contains the add new section button */
 #add-new-btn {
+	margin-top: 50px;
   margin-left: 54%;
 }
 

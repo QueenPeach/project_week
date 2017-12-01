@@ -93,6 +93,12 @@ var happyHour = {
   createOnSubmit: function (event) {
     event.preventDefault();
     console.log('Entered event listener!');
+    for(var i = 0; i < happyHour.business.length; i++) {
+      if (event.target.business.value === happyHour.business[i].name) {
+        alert('Error: Duplicate business\'s are NOT allowed!');
+        return;
+      }
+    }
     new Business(
       event.target.businessname.value,
       event.target.addrstreet.value,
@@ -255,6 +261,7 @@ var happyHour = {
         // Hide/show appropriate buttons
         showHideButton('signin-btn-toggle', false);
         showHideButton('signout-btn', true);
+        console.log('about to show add-new button:');
         showHideButton('add-new-btn', true);
 
         // Set the signed in user
@@ -273,6 +280,10 @@ var happyHour = {
 
 function showHideButton(btnId, visible) {
   var btn = document.getElementById(btnId);
+
+  if (!btn) {
+    return;
+  }
 
   if (visible) {
     btn.style.visibility = 'visible';
@@ -309,7 +320,7 @@ function convertTimeVal(timeVal) {
 
   let hours = Math.floor(timeVal / 100);
   if (hours > 12) {
-    ampm = ' PM'
+    ampm = ' PM';
     hours -= 12;
   }
 
@@ -336,7 +347,7 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.imgURL = imgURL;
   this.pricing = parseInt(pricing);
   // all businesses will be 0..15 miles away
-  this.distance = Math.floor(Math.random() * 15);
+  this.distance = Math.floor(Math.random() * 6);
   happyHour.business.push(this);
   console.log('Business object created:', this);
 }
@@ -352,27 +363,28 @@ function User(userName, password) {
 }
 
 // console.log('Business object constructor created: ', Business);
-new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '18:00', '20:00', '14', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
-new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '9', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
-new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '11', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
-new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media2.fl.yelpcdn.com/bphoto/2mbQQeJuOAkMHT2gXAks8g/o.jpg');
-new Business('Hotel Andra', '2000 4th Ave', 'Seattle', 'WA', '98121', '16:00', '19:00', '20', 'https://s3-media1.fl.yelpcdn.com/bphoto/Njh7iweDZAPXlHhpe8CatQ/o.jpg');
-new Business('Ashley\'s Salmon Cookie Pub', '8764 1st Ave', 'Seattle', 'WA', '98121', '13:00', '19:00', '5', 'https://media4.s-nbcnews.com/j/streams/2013/March/130328/1C6676403-gsbeer.today-inline-large.jpg');
-new Business('Ive Had Better', '6969 0th St', 'Seattle', 'WA', '98121', '14:00', '18:30', '3', 'http://d-hangout.com/site/assets/files/1089/pbr.jpg');
+new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '16:00', '20:00', '15', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
+new Business('Pike Place Chowder', '1530 Post Aly, Ste 11', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media3.fl.yelpcdn.com/bphoto/ijju-wYoRAxWjHPTCxyQGQ/o.jpg');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '10', 'https://anakjajan.files.wordpress.com/2016/03/dscf3140.jpg?w=474&h=316');
+new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '20', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
+new Business('I\'ve Had Better', '6969 0th St', 'Seattle', 'WA', '98121', '14:00', '18:30', '5', 'http://ak0.picdn.net/shutterstock/videos/9182660/thumb/1.jpg');
+new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '10', 'https://s3.amazonaws.com/growlermag/Rabbit-Hole-15.jpg');
+new Business('Hotel Andra', '2000 4th Ave', 'Seattle', 'WA', '98121', '16:00', '19:00', '20', 'https://i.pinimg.com/736x/27/a8/79/27a87988f104b2d1c635fb5d3e2b5ee0--deviled-eggs-hotel-california.jpg');
 
-new Business('Pike Place Chowder', '1530 Post Aly, Ste 11', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media3.fl.yelpcdn.com/bphoto/ijju-wYoRAxWjHPTCxyQGQ/348s.jpg');
-new Business('Tacos Chukis', '219 Broadway E', 'Seattle', 'WA', '98102', '14:00', '19:00', '4', 'https://s3-media4.fl.yelpcdn.com/bphoto/cCRwyQyspK-xaWM732zKnw/o.jpg');
-new Business('Altura', '617 Broadway E', 'Seattle', 'WA', '98102', '15:00', '18:00', '18', 'http://www.seattlemag.com/sites/default/files/field/image/1112altura.jpg');
-new Business('Witness', '410 Broadway E', 'Seattle', 'WA','98102', '22:00', '01:00', '5', 'https://s3-media4.fl.yelpcdn.com/bphoto/nWgv_ROWRuoen0oyAxVh6A/o.jpg');
-new Business('Serafina', '2043 Eastlake Ave E', 'Seattle', 'WA', '98102', '15:00', '18:00', '5', 'https://s3-media1.fl.yelpcdn.com/bphoto/apkvllYgsu5X-os9j66zEQ/348s.jpg');
+new Business('Tacos Chukis', '219 Broadway E', 'Seattle', 'WA', '98102', '14:00', '19:00', '10', 'http://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/06/22/food-paradise-international.jpg.rend.hgtvcom.1280.960.suffix/1491581423542.jpeg');
+new Business('Liberty\'s Broiler', '9876 13th Ave', 'Seattle', 'WA', '98102', '15:00', '18:00', '25', 'http://buyourbottles.com/blog/wp-content/uploads/2013/09/750mlCelebration_WO_Badge_0297f_RGB_FNL.jpg');
+new Business('Altura', '617 Broadway E', 'Seattle', 'WA', '98102', '15:00', '18:00', '15', 'http://www.seattlemag.com/sites/default/files/field/image/1112altura.jpg');
+new Business('Witness', '410 Broadway E', 'Seattle', 'WA','98102', '22:00', '01:00', '15', 'https://s3-media4.fl.yelpcdn.com/bphoto/nWgv_ROWRuoen0oyAxVh6A/o.jpg');
+new Business('Serafina', '2043 Eastlake Ave E', 'Seattle', 'WA', '98102', '15:00', '18:00', '25', 'https://s3-media1.fl.yelpcdn.com/bphoto/apkvllYgsu5X-os9j66zEQ/o.jpg');
 new Business('Steve\'s Pizza Mart', '1234 Sesame St', 'Seattle', 'WA', '98102', '16:00', '18:00', '5', 'https://itsgoingdown.org/wp-content/uploads/2017/08/zzzz.jpeg');
+new Business('Dog Pound Pub', '4321 Doggy Dog St', 'Seattle', 'WA', '98102', '14:00', '20:00', '10', 'http://cdn.abclocal.go.com/content/creativecontent/images/cms/371904_1280x720.jpg');
 
 new Business('The Pink Door', '1919 Post Aly', 'Seattle', 'WA', '98101', '21:00', '02:00', '20', 'https://s3-media4.fl.yelpcdn.com/bphoto/4MmMuSGEQCXpqEoCOhL7tw/o.jpg');
-new Business('Japonessa', '1400 1st Ave', 'Seattle', 'WA', '98101', '15:00', '17:30', '15', 'https://s3-media4.fl.yelpcdn.com/bphoto/vucCrknnlu1RRvRaKWwovQ/348s.jpg');
-new Business('Jay\'s Watering Hole', '6969 4th Ave', 'Seattle', 'WA', '98101', '10:00', '02:00', '1', 'https://i.pinimg.com/736x/2b/3f/8c/2b3f8ca832696337a551dd1d382a7241--restaurant-bar-stools-restaurant-bar-design.jpg');
-new Business('Purple Cafe and Wine bar', '1225 4th Ave', 'Seattle', 'WA', '98101', '16:00', '18:00', '22', 'https://s3-media3.fl.yelpcdn.com/bphoto/mKmgyZbM-Dg0GMd8izvnUA/o.jpg');
-new Business('Sweet Iron', '1200 3rd Ave', 'Seattle', 'WA', '98101', '14:00', '19:00', '5', 'https://s3-media1.fl.yelpcdn.com/bphoto/_BwGQVTPqGOLUyB9CStMCA/o.jpg');
-new Business('Liberty\'s Broiler', '9876 13th Ave', 'Seattle', 'WA', '98101', '15:00', '18:00', '25', 'http://buyourbottles.com/blog/wp-content/uploads/2013/09/750mlCelebration_WO_Badge_0297f_RGB_FNL.jpg');
-new Business('Super Happy Fun Time', '8142 3rd St', 'Seattle', 'WA', '98101', '21:00', '02:00', '8', 'https://www.diggersservicesclub.com.au/wp/wp-content/uploads/2016/02/group-of-people-at-bar.jpg');
+new Business('Japonessa', '1400 1st Ave', 'Seattle', 'WA', '98101', '15:00', '17:30', '15', 'https://s3-media4.fl.yelpcdn.com/bphoto/vucCrknnlu1RRvRaKWwovQ/o.jpg');
+new Business('Jay\'s Watering Hole', '6969 4th Ave', 'Seattle', 'WA', '98101', '10:00', '02:00', '1', 'https://lh3.googleusercontent.com/2i-VL4mXPXROh4uoY6gPf82PAXAA3YOCgB7vlsBUpawFezt9HFGurtAgSYr2lOk=w646');
+new Business('Purple Cafe and Wine bar', '1225 4th Ave', 'Seattle', 'WA', '98101', '16:00', '18:00', '25', 'https://punchdrink.com/wp-content/uploads/2015/08/bacchanal-6.jpg');
+new Business('Sweet Iron', '1200 3rd Ave', 'Seattle', 'WA', '98101', '14:00', '19:00', '5', 'https://static1.squarespace.com/static/584718fde58c62230162432f/5865767b46c3c4cd44f8124c/5916076c15d5dbbefa8f409d/1494616759551/parker-palm-spring-zinc-resize.jpg?format=750w');
+new Business('Ashley\'s Salmon Cookie Pub', '8764 1st Ave', 'Seattle', 'WA', '98101', '13:00', '19:00', '20', 'http://robertehill.github.io/cookie-stand-REH/img/3.jpg');
+new Business('Super Happy Fun Time', '8142 3rd St', 'Seattle', 'WA', '98101', '21:00', '02:00', '25', 'https://www.diggersservicesclub.com.au/wp/wp-content/uploads/2016/02/group-of-people-at-bar.jpg');
 
 new User('user', 'password');
