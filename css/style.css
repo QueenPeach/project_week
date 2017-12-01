@@ -232,6 +232,7 @@ input {
 
 /* section that contains the add new section button */
 #add-new-btn {
+	margin-top: 50px;
   margin-left: 54%;
 }
 

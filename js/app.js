@@ -261,6 +261,7 @@ var happyHour = {
         // Hide/show appropriate buttons
         showHideButton('signin-btn-toggle', false);
         showHideButton('signout-btn', true);
+        console.log('about to show add-new button:');
         showHideButton('add-new-btn', true);
 
         // Set the signed in user
@@ -319,7 +320,7 @@ function convertTimeVal(timeVal) {
 
   let hours = Math.floor(timeVal / 100);
   if (hours > 12) {
-    ampm = ' PM'
+    ampm = ' PM';
     hours -= 12;
   }
 
