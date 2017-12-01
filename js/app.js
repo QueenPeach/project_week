@@ -94,7 +94,7 @@ var happyHour = {
     event.preventDefault();
     console.log('Entered event listener!');
     for(var i = 0; i < happyHour.business.length; i++) {
-      if (event.target.business.value === happyHour.business[i].name) {
+      if (event.target.businessname.value === happyHour.business[i].name) {
         alert('Error: Duplicate business\'s are NOT allowed!');
         return;
       }
@@ -115,7 +115,6 @@ var happyHour = {
   },
 
   cacheData: function (cacheBusiness, cacheUser, cacheSignIn) {
-    console.log('cacheSignIn', cacheSignIn, 'happyHour.signedInUserName', happyHour.signedInUserName);
     if (cacheBusiness && happyHour.business.length > 0) {
       localStorage.business = JSON.stringify(happyHour.business);
     }
@@ -128,9 +127,11 @@ var happyHour = {
       console.log('Caching signin data', happyHour.signedInUserName);
       // Just cache the name for now
       if (happyHour.signedInUserName) {
-        localStorage.signedInUserName = JSON.stringify(happyHour.signedInUserName);
+        console.log('Setting localStorage.signedInUserName=' + happyHour.signedInUserName);
+        localStorage.signedInUserName = happyHour.signedInUserName;
       } else {
-        localStorage.signedInUserName = null;
+        console.log('Clearing localStorage.signedInUserName');
+        localStorage.clear('signedInUserName');
       }
     }
   },
@@ -169,7 +170,7 @@ var happyHour = {
 
     if (localStorage.signedInUserName) {
       // Extract the name of the user
-      var name = JSON.parse(localStorage.signedInUserName);
+      var name = localStorage.signedInUserName;
       console.log('Found signedInUserName in localStorage:', name);
       // Find the username that was signed in, store it, and restore the session
       happyHour.signedInUserName = name;
@@ -177,6 +178,7 @@ var happyHour = {
       showHideButton('add-new-btn', true);
       showHideButton('signout-btn', true);
     } else {
+      console.log('No signed in user found in localStorage');
       showHideButton('signin-btn-toggle', true);
       showHideButton('add-new-btn', false);
       showHideButton('signout-btn', false);
@@ -342,8 +344,8 @@ function Business(businessName, street, city, state, zip, hhTimeStart, hhTimeEnd
   this.address.state = state;
   this.address.zip = zip;
   this.hhTime = {};
-  this.hhTime.start = convertTimeString(hhTimeStart);
-  this.hhTime.end = convertTimeString(hhTimeEnd);
+  this.hhTime.start = typeof(hhTimeStart) === 'number' ? hhTimeStart : convertTimeString(hhTimeStart);
+  this.hhTime.end = typeof(hhTimeEnd) === 'number' ? hhTimeEnd : convertTimeString(hhTimeEnd);
   this.imgURL = imgURL;
   this.pricing = parseInt(pricing);
   // all businesses will be 0..15 miles away
@@ -365,7 +367,7 @@ function User(userName, password) {
 // console.log('Business object constructor created: ', Business);
 new Business('Some Random Bar', '2604 1st Ave', 'Seattle', 'WA', '98121', '16:00', '20:00', '15', 'https://s3-media1.fl.yelpcdn.com/bphoto/m4hfcLhvJbEGdbgI3DhvqA/o.jpg');
 new Business('Pike Place Chowder', '1530 Post Aly, Ste 11', 'Seattle', 'WA', '98121', '16:00', '18:00', '5', 'https://s3-media3.fl.yelpcdn.com/bphoto/ijju-wYoRAxWjHPTCxyQGQ/o.jpg');
-new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '10', 'https://anakjajan.files.wordpress.com/2016/03/dscf3140.jpg?w=474&h=316');
+new Business('Mr Darcy\'s', '2222 2nd Ave', 'Seattle', 'WA', '98121', '17:00', '19:00', '10', 'https://s3-media4.fl.yelpcdn.com/bphoto/Mzk-V11ozhmnYxCIppIVJg/o.jpg');
 new Business('Jupiter Bar', '2126 2nd Ave', 'Seattle', 'WA', '98121', '14:00', '17:30', '20', 'https://s3-media1.fl.yelpcdn.com/bphoto/_hE7rHaEOUpDm9IRaaWqzA/o.jpg');
 new Business('I\'ve Had Better', '6969 0th St', 'Seattle', 'WA', '98121', '14:00', '18:30', '5', 'http://ak0.picdn.net/shutterstock/videos/9182660/thumb/1.jpg');
 new Business('Rabbit Hole', '2222 2nd Ave', 'Seattle', 'WA', '98121', '16:00', '18:00', '10', 'https://s3.amazonaws.com/growlermag/Rabbit-Hole-15.jpg');
