@@ -55,6 +55,7 @@ body {
 
 main {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 /* Header styles */
@@ -209,7 +210,7 @@ input {
 #filter-section {
   position: fixed;
   left: 11%;
-	margin-top: 20px;
+	margin-top: 150px;
 }
 
 #business-section {
